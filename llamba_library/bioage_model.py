@@ -10,7 +10,7 @@ class BioAgeModel():
     def __init__(self, model: nn.Module):
         self.model = model
         self.model.eval()
-        self.model.freeze()
+        self.model.requires_grad_(requires_grad=False)
 
     def inference(self, data: pd.DataFrame, device: torch.device):
         self.model.to(device)
